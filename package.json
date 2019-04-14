@@ -1,14 +1,17 @@
 {
-  "name": "@robpc/config",
+  "name": "@robpc/logger",
   "version": "1.0.0",
-  "description": "Simple configuration library for use in node and the browser",
+  "description": "Simple logging library for use in node and the browser",
   "main": "lib/index.js",
   "scripts": {
     "build": "node_modules/.bin/webpack --mode production",
     "test": "jest"
   },
   "keywords": [
-    "configuration"
+    "log",
+    "logging",
+    "logger",
+    "log4j"
   ],
   "author": "Rob Cannon",
   "license": "ISC",

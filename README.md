@@ -1,6 +1,10 @@
 # @robpc/logger
 
-Simple logger library for use in node and the browser. Intended to be a extremely light-weight version, has only one file and no dependencies.
+Simple logging library for use in node and the browser. Intended to be a extremely light-weight version, has only one file and no dependencies.
+
+## Installation
+
+    npm install --save @robpc/logger
 
 ## Usage
 
