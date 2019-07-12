@@ -33,7 +33,15 @@ module.exports = {
   node: {
     fs: 'empty',
   },
+  optimization: {
+    minimize: false,
+  },
   plugins: [
     new BannerPlugin(LICENSE),
   ],
+  module: {
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+    ],
+  },
 };
