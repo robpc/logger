@@ -13,9 +13,9 @@
  * OR PERFORMANCE OF THIS SOFTWARE.
  */
 /* eslint-disable no-console */
-const invertObject = data => Object.keys(data)
+const invertObject = (data) => Object.keys(data)
   .reduce(
-    (obj, key) => Object.assign({}, obj, { [data[key]]: key }),
+    (obj, key) => ({ ...obj, [data[key]]: key }),
     {},
   );
 
