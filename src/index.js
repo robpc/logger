@@ -70,7 +70,7 @@ const LoggerFactory = {
   getLogLevel: () => logLevel,
 
   setLogLevel: (level) => {
-    let newLevel = undefined;
+    let newLevel;
     if (level && typeof level === 'string') {
       newLevel = LogLevels[level.toUpperCase()];
     } else if (typeof level === 'number' && Object.values(LogLevels).includes(level)) {
@@ -93,7 +93,7 @@ const LoggerFactory = {
       loggerDirectory[name] = new Logger(name);
     }
     return loggerDirectory[name];
-  }
-}
+  },
+};
 
 module.exports = LoggerFactory;
