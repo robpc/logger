@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable no-console */
 /*
  * Copyright 2019 Rob Cannon
  *
@@ -13,12 +15,10 @@
  * OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-
 describe('logger', () => {
-
   beforeEach(() => {
     console.log = jest.fn();
-  })
+  });
 
   test('set level and log', () => {
     const loggerFactory = require('./index');
@@ -38,7 +38,7 @@ describe('logger', () => {
     expect(console.log.mock.calls[1]).toEqual(
       ['[test] INFO:', 'this is a test'],
     );
-  })
+  });
 
   test('not log below level', () => {
     const loggerFactory = require('./index');
@@ -50,7 +50,7 @@ describe('logger', () => {
     logger.warn('this is a test');
 
     expect(console.log.mock.calls.length).toBe(0);
-  })
+  });
 
   test('set level with string', () => {
     const loggerFactory = require('./index');
@@ -77,7 +77,7 @@ describe('logger', () => {
 
     loggerFactory.setLogLevel();
     expect(loggerFactory.getLogLevel()).toEqual(LEVELS.ERROR);
-  })
+  });
 
   test('set level with number', () => {
     const loggerFactory = require('./index');
@@ -101,5 +101,5 @@ describe('logger', () => {
 
     loggerFactory.setLogLevel(42);
     expect(loggerFactory.getLogLevel()).toEqual(LEVELS.ERROR);
-  })
-})
+  });
+});

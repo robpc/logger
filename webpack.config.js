@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const CopyPlugin = require('copy-webpack-plugin');
 const { BannerPlugin } = require('webpack');
 
 const LICENSE = fs.readFileSync('./LICENSE', 'utf8');
@@ -38,6 +39,11 @@ module.exports = {
   },
   plugins: [
     new BannerPlugin(LICENSE),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/**/*.d.ts', flatten: true },
+      ],
+    }),
   ],
   module: {
     rules: [
