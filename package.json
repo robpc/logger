@@ -1,6 +1,6 @@
 {
   "name": "@robpc/logger",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple logging library for use in node and the browser",
   "main": "lib/index.js",
   "scripts": {
