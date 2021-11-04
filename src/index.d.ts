@@ -23,7 +23,7 @@ declare interface LoggerFactory {
    * name param.
    */
   get: (name: string) => Logger,
-};
+}
 
 declare const factory: LoggerFactory
 export = factory;

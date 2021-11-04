@@ -31,9 +31,9 @@ module.exports = {
     filename: '[name].js',
   },
   target: 'node',
-  node: {
-    fs: 'empty',
-  },
+  // node: {
+  //   fs: 'empty',
+  // },
   optimization: {
     minimize: false,
   },
@@ -41,7 +41,7 @@ module.exports = {
     new BannerPlugin(LICENSE),
     new CopyPlugin({
       patterns: [
-        { from: 'src/**/*.d.ts', flatten: true },
+        { from: '*.d.ts', context: 'src/' },
       ],
     }),
   ],
