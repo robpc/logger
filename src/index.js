@@ -26,11 +26,16 @@ const LogLevels = Object.freeze({
 const LogLevelNames = Object.freeze(invertObject(LogLevels));
 
 let logLevel = LogLevels.ERROR;
+let isStderr = false;
 
 const log = (name, level, ...args) => {
   if (level >= logLevel) {
     const levelName = LogLevelNames[level];
-    console.log(`[${name}] ${levelName}:`, ...args);
+    if (isStderr) {
+      console.error(`[${name}] ${levelName}:`, ...args);
+    } else {
+      console.log(`[${name}] ${levelName}:`, ...args);
+    }
   }
 };
 
@@ -68,6 +73,8 @@ const LoggerFactory = {
   LEVELS: LogLevels,
 
   getLogLevel: () => logLevel,
+
+  setStderrOutput: (flag) => isStderr = !!flag, 
 
   setLogLevel: (level) => {
     let newLevel;

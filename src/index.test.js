@@ -18,6 +18,7 @@
 describe('logger', () => {
   beforeEach(() => {
     console.log = jest.fn();
+    console.error = jest.fn();
   });
 
   test('set level and log', () => {
@@ -30,12 +31,35 @@ describe('logger', () => {
     logger.info('this is a test');
 
     expect(console.log.mock.calls.length).toBe(2);
+    expect(console.error.mock.calls.length).toBe(0);
 
     expect(console.log.mock.calls[0]).toEqual(
       ['[LogFactory] INFO:', 'Setting log level to INFO'],
     );
 
     expect(console.log.mock.calls[1]).toEqual(
+      ['[test] INFO:', 'this is a test'],
+    );
+  });
+
+  test('set level and error', () => {
+    const loggerFactory = require('./index');
+
+    loggerFactory.setStderrOutput(true);
+    loggerFactory.setLogLevel('INFO');
+
+    const logger = loggerFactory.get('test');
+
+    logger.info('this is a test');
+
+    expect(console.log.mock.calls.length).toBe(0);
+    expect(console.error.mock.calls.length).toBe(2);
+
+    expect(console.error.mock.calls[0]).toEqual(
+      ['[LogFactory] INFO:', 'Setting log level to INFO'],
+    );
+
+    expect(console.error.mock.calls[1]).toEqual(
       ['[test] INFO:', 'this is a test'],
     );
   });
@@ -50,6 +74,7 @@ describe('logger', () => {
     logger.warn('this is a test');
 
     expect(console.log.mock.calls.length).toBe(0);
+    expect(console.error.mock.calls.length).toBe(0);
   });
 
   test('set level with string', () => {

@@ -18,6 +18,8 @@ declare interface LoggerFactory {
 
   setLogLevel: (level: string | number) => void;
 
+  setStderrOutput: (flag: boolean) => void
+
   /**
    * Creates or returns an existing logger create with the
    * name param.

@@ -12,9 +12,12 @@ _index.js_
 
     const LoggerFactory = require('@robpc/logger');
 
+    // Set to push output to stderr (useful for node scripts)
+    // NOTE: Must be called before setLogLevel to prevent all printing to stdout
+    LoggerFactory.setStderrOutput(true);
+
     // Set once at the top of your application and applies everywhere
     LoggerFactory.setLogLevel('DEBUG'); // or LoggerFactory.LEVELS.INFO or 2
-
     const logger = LoggerFactory.get('main');
 
     const data = { rob: 1 };
